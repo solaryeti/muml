@@ -1,0 +1,76 @@
+* muml
+
+Emacs minor mode to display the count of a mu query / mu4e bookmark in
+the mode-line
+
+** Install
+Add this file to your Emacs-Lisp load path, or load it explicitly by
+adding the following to your ~/.emacs.d/init.el:
+#+BEGIN_SRC emacs-lisp
+  (load-file "/path/to/muml.el")
+#+END_SRC
+
+
+** Usage
+*** Configuration
+Add the following to your emacs config to enable muml:
+#+BEGIN_SRC emacs-lisp
+  (require 'muml)
+  (turn-on-muml-mode)
+#+END_SRC
+
+The query used can be customised by setting 'muml-query. For example,
+to query for unread mail use:
+#+BEGIN_SRC emacs-lisp
+  (setq muml-query "flag:unread")
+#+END_SRC
+
+This is the default value for 'muml-query.
+
+You can also query using a bookmark as follows:
+#+BEGIN_SRC emacs-lisp
+  (setq muml-bookmark "Unread messages")
+#+END_SRC
+
+This variable has precedence over 'muml-query but the
+query will default to that of 'muml-query if the bookmark
+cannot be found.
+
+If using a bookmark be sure to turn on muml after you
+configure your mu4e bookmarks. If not, then your bookmark will not
+be found on the initial setting of the mode-line.
+
+*** Updating the query count
+muml makes use of the /mu4e-index-updated-hook/. This hook does not
+always trigger the hooks every time mail properties change. For
+example, deleted mail will not trigger the hook when mu4e updates the
+index. As a result, the muml count will be incorrect. You can manually
+trigger an update by running:
+#+BEGIN_SRC
+  M-x muml-update
+#+END_SRC
+
+*** Displaying the query count with muml disabled
+If you do not want to have muml permanently displaying in your
+mode-line but would like to know if there is any mail waiting for you
+without switching to mu4e, you can run the following command to
+display the count of your chosen query or bookmark in the echo area:
+#+BEGIN_SRC
+  M-x muml-display-query-count
+#+END_SRC
+
+
+** License
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
