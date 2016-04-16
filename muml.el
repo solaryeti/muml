@@ -171,12 +171,14 @@ This option takes precedence over 'muml-query."
 (defun muml--enable-mode-line ()
   "Enable muml in the mode-line."
   (add-to-list 'global-mode-string 'muml-string t)
+  (add-hook 'mu4e-view-mode-hook 'muml-update)
   (add-hook 'mu4e-index-updated-hook 'muml-update)
   (muml-update))
 
 (defun muml--disable-mode-line ()
   "Disable muml in the mode-line."
   (muml--remove-from-mode-line-string)
+  (remove-hook 'mu4e-view-mode-hook 'muml-update)
   (remove-hook 'mu4e-index-updated-hook 'muml-update))
 
 ;;;###autoload
