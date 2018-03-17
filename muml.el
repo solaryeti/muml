@@ -221,13 +221,6 @@ This option takes precedence over 'muml-query."
                              (concat mu4e-mu-binary " find " query
                                      " 2> /dev/null | wc -l" ))))
 
-;; (defun muml--count-query-results (query)
-;;   "Return the number of results in the mu database for QUERY."
-;;   (length (delq "" (split-string
-;;                     (shell-command-to-string
-;;                      (concat mu4e-mu-binary " find " query " 2> /dev/null" ))
-;;                     "\n"))))
-
 (defun muml--remove-from-mode-line-string ()
   "Remove the muml-string from the `global-mode-string'."
   (setq global-mode-string
