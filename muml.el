@@ -128,7 +128,7 @@ This option takes precedence over 'muml-query."
   :group 'muml)
 
 (defcustom muml-hide-mode-line-when-zero nil
-  "Query used for count displayed in mode-line."
+  "Disable the mode-line when the message count is zero."
   :type 'boolean
   :group 'muml)
 
