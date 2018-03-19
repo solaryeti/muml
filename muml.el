@@ -1,7 +1,7 @@
 ;;; muml.el --- Minor mode for displaying the number of results of a
 ;;; mu (mu4e) query in the mode-line
 
-;; Copyright (C) 2014 Steven Meunier
+;; Copyright (C) 2018 Steven Meunier
 
 ;; Author: Steven Meunier <gh@solaryeti.com>
 ;; Maintainer: Steven Meunier <gh@solaryeti.com>
