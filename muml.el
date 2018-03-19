@@ -220,12 +220,14 @@ This option takes precedence over 'muml-query."
   (number-to-string
    (length (split-string
             (s-trim (shell-command-to-string
-                     (concat mu4e-mu-binary
-                             " find --nocolor"
-                             (when mu4e-mu-home
-                               (concat "--muhome=" mu4e-mu-home " "))
-                             query
-                             " 2> /dev/null")))
+                     (string-join (list mu4e-mu-binary
+                                        "find"
+                                        "--nocolor"
+                                        (when mu4e-mu-home
+                                          (concat "--muhome=" mu4e-mu-home))
+                                        query
+                                        "2> /dev/null")
+                                  " ")))
             "\n"))))
 
 (defun muml--remove-from-mode-line-string ()
