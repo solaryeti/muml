@@ -192,7 +192,7 @@ This option takes precedence over 'muml-query."
           (if (and (string= "0" result-count) muml-hide-mode-line-when-zero)
               ""
             (propertize
-             (concat muml-prefix result-count)
+             (concat muml-prefix " " result-count)
              'help-echo "mu4e query results count"))))
   (force-mode-line-update))
 
