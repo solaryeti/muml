@@ -221,7 +221,7 @@ This option takes precedence over 'muml-query."
    (length (split-string
             (s-trim (shell-command-to-string
                      (concat mu4e-mu-binary
-                             " find "
+                             " find --nocolor"
                              (when mu4e-mu-home
                                (concat "--muhome=" mu4e-mu-home " "))
                              query
