@@ -215,18 +215,18 @@ This option takes precedence over 'muml-query."
                          "[muml] Reverting to default query: " muml-query))
         muml-query))))
 
-
 (defun muml--count-query-results (query)
   "Return the number of results in the mu database for QUERY."
-  (count-lines
-   (shell-command-to-string
-    (concat mu4e-mu-binary
-            (concat mu4e-mu-binary
-                    " find "
-                    (when mu4e-mu-home
-                      (concat "--muhome=" mu4e-mu-home " "))
-                    query
-                    " 2> /dev/null")))))
+  (number-to-string
+   (length (split-string
+            (s-trim (shell-command-to-string
+                     (concat mu4e-mu-binary
+                             " find "
+                             (when mu4e-mu-home
+                               (concat "--muhome=" mu4e-mu-home " "))
+                             query
+                             " 2> /dev/null")))
+            "\n"))))
 
 (defun muml--remove-from-mode-line-string ()
   "Remove the muml-string from the `global-mode-string'."
