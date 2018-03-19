@@ -217,10 +217,15 @@ This option takes precedence over 'muml-query."
 
 (defun muml--count-query-results (query)
   "Return the number of results in the mu database for QUERY."
-  (replace-regexp-in-string "\n$" ""
-                            (shell-command-to-string
-                             (concat mu4e-mu-binary " find " query
-                                     " 2> /dev/null | wc -l" ))))
+  (count-lines
+   (shell-command-to-string
+    (concat mu4e-mu-binary
+            (concat mu4e-mu-binary
+                    " find "
+                    (when mu4e-mu-home
+                      (concat "--muhome=" mu4e-mu-home " "))
+                    query
+                    " 2> /dev/null")))))
 
 (defun muml--remove-from-mode-line-string ()
   "Remove the muml-string from the `global-mode-string'."
