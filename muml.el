@@ -31,11 +31,11 @@
 ;; of results for a particular mu search query.
 
 ;; Configuration:
-;; Add the following to your emacs config to enable muml:
+;; Add the following to your Emacs config to enable muml:
 ;;   (require 'muml)
 ;;   (turn-on-muml-mode)
 
-;; The query used can be customised by setting 'muml-query. For
+;; The query used can be customised by setting 'muml-query.  For
 ;; example, to query for unread mail use:
 ;;   (setq muml-query "flag:unread")
 
@@ -48,9 +48,9 @@
 ;; query will default to that of 'muml-query if the bookmark
 ;; cannot be found.
 
-;; If using a bookmark be sure to turn on muml after you
-;; configure your mu4e bookmarks. If not, then your bookmark will not
-;; be found on the initial setting of the mode-line.
+;; If using a bookmark be sure to turn on muml after you configure
+;; your mu4e bookmarks.  If not, then your bookmark will not be found
+;; on the initial setting of the mode-line.
 
 ;; Updating the query count:
 ;; muml makes use of multiple hooks to update the message
