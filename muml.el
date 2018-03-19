@@ -53,11 +53,10 @@
 ;; be found on the initial setting of the mode-line.
 
 ;; Updating the query count:
-;; muml makes use of the /mu4e-index-updated-hook/. This hook does not
-;; always trigger the hooks every time mail properties change. For
-;; example, deleted mail will not trigger the hook when mu4e updates the
-;; index. As a result, the muml count will be incorrect. You can manually
-;; trigger an update by running:
+;; muml makes use of multiple hooks to update the message
+;; count.  However, it is possible that under certain situations the
+;; count might not get updated.  In this case, you can manually trigger
+;; an update by running:
 ;;   M-x muml-update
 
 ;; Displaying the query count with muml disabled:
