@@ -205,15 +205,16 @@ This option takes precedence over 'muml-query."
   "Get the corresponding named mu4e bookmarked query for BOOKMARK, or return 'muml-query if none is found."
   (let ((chosen-bm
          (find-if
-           (lambda (bm)
-             (string= bookmark (nth 1 bm)))
-           mu4e-bookmarks)))
-   (if chosen-bm
-       (nth 0 chosen-bm)
-     (progn
-       (message (concat "[muml] Unable to find bookmark \"" bookmark "\"\n"
-                        "[muml] Reverting to default query: " muml-query))
-       muml-query))))
+          (lambda (bm)
+            (string= bookmark (nth 1 bm)))
+          mu4e-bookmarks)))
+    (if chosen-bm
+        (nth 0 chosen-bm)
+      (progn
+        (message (concat "[muml] Unable to find bookmark \"" bookmark "\"\n"
+                         "[muml] Reverting to default query: " muml-query))
+        muml-query))))
+
 
 (defun muml--count-query-results (query)
   "Return the number of results in the mu database for QUERY."
