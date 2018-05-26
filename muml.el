@@ -218,17 +218,20 @@ This option takes precedence over 'muml-query."
 (defun muml--count-query-results (query)
   "Return the number of results in the mu database for QUERY."
   (number-to-string
-   (length (split-string
-            (s-trim (shell-command-to-string
-                     (string-join (list mu4e-mu-binary
-                                        "find"
-                                        "--nocolor"
-                                        (when mu4e-mu-home
-                                          (concat "--muhome=" mu4e-mu-home))
-                                        query
-                                        "2> /dev/null")
-                                  " ")))
-            "\n"))))
+   (length
+    (seq-filter '(lambda (x)
+                   (not (string-empty-p x)))
+                (split-string
+                 (s-trim (shell-command-to-string
+                          (string-join (list mu4e-mu-binary
+                                             "find"
+                                             "--nocolor"
+                                             (when mu4e-mu-home
+                                               (concat "--muhome=" mu4e-mu-home))
+                                             query
+                                             "2> /dev/null")
+                                       " ")))
+                 "\n")))))
 
 (defun muml--remove-from-mode-line-string ()
   "Remove the muml-string from the `global-mode-string'."
