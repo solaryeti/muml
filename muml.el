@@ -1,12 +1,12 @@
 ;;; muml.el --- Minor mode for displaying the number of results of a
 ;;; mu (mu4e) query in the mode-line
 
-;; Copyright (C) 2018 Steven Meunier
+;; Copyright (C) 2019 Steven Meunier
 
 ;; Author: Steven Meunier <gh@solaryeti.com>
 ;; Maintainer: Steven Meunier <gh@solaryeti.com>
 ;; Created: 1 Nov 2014
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Keywords: convenience email
 ;; URL: https://github.com/solaryeti/muml
 
@@ -204,7 +204,7 @@ This option takes precedence over 'muml-query."
 (defun muml--get-mu4e-bookmark-query-by-name (bookmark)
   "Get the corresponding named mu4e bookmarked query for BOOKMARK, or return 'muml-query if none is found."
   (let ((chosen-bm
-         (find-if
+         (cl-find-if
           (lambda (bm)
             (string= bookmark (nth 1 bm)))
           mu4e-bookmarks)))
