@@ -97,11 +97,6 @@
 ;; configure your mu4e bookmarks. If not, then your bookmark will not
 ;; be found on the initial setting of the mode-line.
 
-;;; TODO:
-
-;; 02/11/2014: Count line output of mu query in emacs rather than
-;; using 'wc' to make more portable
-
 ;;; Code:
 (require 'mu4e-vars)
 
