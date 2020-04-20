@@ -199,12 +199,12 @@ This option takes precedence over 'muml-query."
 (defun muml--get-mu4e-bookmark-query-by-name (bookmark)
   "Get the corresponding named mu4e bookmarked query for BOOKMARK, or return 'muml-query if none is found."
   (let ((chosen-bm
-         (plist-get
+         (cl-remove-if-not
           (lambda (bm)
-            (string= bookmark (nth 1 bm)))
+            (string= bookmark (plist-get bm :name)))
           mu4e-bookmarks)))
     (if chosen-bm
-        (nth 0 chosen-bm)
+        (plist-get (nth 0 chosen-bm) :query)
       (progn
         (message (concat "[muml] Unable to find bookmark \"" bookmark "\"\n"
                          "[muml] Reverting to default query: " muml-query))
