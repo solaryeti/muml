@@ -133,6 +133,7 @@ This option takes precedence over 'muml-query."
 
 ;;;###autoload
 (define-minor-mode muml-mode
+  "Minor mode for displaying unread email count in the modeline."
   :global t
   :group 'muml
   :init-value t
@@ -223,7 +224,7 @@ This option takes precedence over 'muml-query."
                                              "--nocolor"
                                              (when mu4e-mu-home
                                                (concat "--muhome=" mu4e-mu-home))
-                                             query
+                                             "'" query "'"
                                              "2> /dev/null")
                                        " ")))
                  "\n")))))
