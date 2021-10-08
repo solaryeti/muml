@@ -218,7 +218,7 @@ This option takes precedence over 'muml-query."
     (seq-filter '(lambda (x)
                    (not (string-empty-p x)))
                 (split-string
-                 (s-trim (shell-command-to-string
+                 (string-trim (shell-command-to-string
                           (string-join (list mu4e-mu-binary
                                              "find"
                                              "--nocolor"
