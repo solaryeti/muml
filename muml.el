@@ -104,7 +104,7 @@
   "display count of mu query in the mode-line"
   :group 'modeline)
 
-(defcustom muml-prefix "✉"
+(defcustom muml-prefix "✉ "
   "Text to display before the query result in the mode-line."
   :type 'string
   :group 'muml)
